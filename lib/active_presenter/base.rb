@@ -5,7 +5,9 @@ module ActivePresenter
     extend  ActiveModel::Callbacks
     extend  ActiveModel::Naming
     extend  ActiveModel::Translation
-    include ActiveModel::MassAssignmentSecurity
+    if defined?(ActiveModel::MassAssignmentSecurity)
+      include ActiveModel::MassAssignmentSecurity
+    end
     include ActiveModel::Conversion
 
     attr_reader :errors
